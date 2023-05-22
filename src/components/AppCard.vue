@@ -1,5 +1,6 @@
 <script>
 export default {
+  name: "AppCard",
   props: {
     characterData: Object,
   },
@@ -12,14 +13,26 @@ export default {
       :src="characterData.card_images[0].image_url"
       :alt="characterData.name"
     />
-    <h2>{{ characterData.name }}</h2>
+    <h3>{{ characterData.name }}</h3>
+    <p class="type">{{ characterData.archetype }}</p>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .cards {
-  height: 200px;
-  width: 100px;
-  border: 1px solid black;
+  text-align: center;
+
+  background-color: #d48f38;
+  margin-inline: 10px;
+  margin-bottom: 10px;
+}
+h3 {
+  color: white;
+}
+p {
+  margin: 1rem;
+}
+img {
+  width: 100%;
 }
 </style>

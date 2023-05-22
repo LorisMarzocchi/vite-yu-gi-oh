@@ -8,9 +8,11 @@ export default {
 
 <template>
   <div class="cards">
-    <img src="" alt="" />
-    <h5></h5>
-    <p></p>
+    <img
+      :src="characterData.card_images[0].image_url"
+      :alt="characterData.name"
+    />
+    <h2>{{ characterData.name }}</h2>
   </div>
 </template>
 

@@ -12,9 +12,9 @@ export default {
 
 <template>
   <div>
-    <select v-model="type.optionList.value" class="form-select">
+    <select v-model="type.value" class="form-select">
       <option
-        v-for="option in type.optionList.archetype_name"
+        v-for="option in type"
         :key="option.archetype_name"
         :value="option"
       >

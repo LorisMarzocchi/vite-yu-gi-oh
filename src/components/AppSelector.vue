@@ -1,24 +1,25 @@
 <script>
-import { type } from "../store";
+import { store } from "../store";
 
 export default {
   data() {
     return {
-      type,
+      store,
     };
+  },
+  methods: {
+    onChange() {
+      this.$emit("pippo");
+    },
   },
 };
 </script>
 
 <template>
   <div>
-    <select v-model="type.value" class="form-select">
-      <option
-        v-for="option in type"
-        :key="option.archetype_name"
-        :value="option"
-      >
-        {{ option }}
+    <select @change="onChange" v-model="store.value" class="form-select">
+      <option v-for="option in store.optionList" :key="option.archetype_name" :value="option.archetype_name">
+        {{ option.archetype_name }}
       </option>
     </select>
   </div>

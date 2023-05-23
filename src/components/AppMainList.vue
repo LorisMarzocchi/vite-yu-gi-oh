@@ -1,4 +1,5 @@
 <script>
+
 import AppCard from "./AppCard.vue";
 import { store } from "../store";
 
@@ -18,12 +19,7 @@ export default {
   <div class="containerCard">
     <div class="countCard">Found 20 cards</div>
     <div class="container">
-      <AppCard
-        v-for="(cards, index) in store.cardList"
-        :key="index"
-        class="card-character"
-        :characterData="cards"
-      />
+      <AppCard v-for="(cards, index) in store.cardList" :key="index" class="card-character" :characterData="cards" />
     </div>
   </div>
 </template>
@@ -32,10 +28,12 @@ export default {
 .card-character {
   width: calc((100% / 5) - 20px);
 }
+
 .container {
   display: flex;
   flex-wrap: wrap;
 }
+
 .containerCard {
   padding: 20px;
   height: 100%;
@@ -43,6 +41,7 @@ export default {
   width: 80%;
   background-color: white;
 }
+
 .countCard {
   text-align: center;
   padding: 1rem;

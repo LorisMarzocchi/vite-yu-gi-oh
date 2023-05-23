@@ -18,21 +18,28 @@ export default {
     AppMainList,
   },
   created() {
-    // qui fare la richiesta all'api
-    axios
-      .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
-      .then((response) => (this.store.cardList = response.data.data));
-
     axios
       .get("https://db.ygoprodeck.com/api/v7/archetypes.php")
-      .then((response) => (this.type.optionList = response.archetype_name));
+      .then((response) => (this.store.optionList = response.data));
+  },
+  methods: {
+    requestData() {
+      axios
+        .get(
+          `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype_name=${store.value}`
+        )
+        .then((response) => (this.store.cardList = response.data.data));
+    },
+    onFilter(pippo) {
+      this.value = pippo;
+    }
   },
 };
 </script>
 
 <template>
   <AppHeader />
-  <AppSelector />
+  <AppSelector @pippo="requestData()" />
   <AppMainList />
 </template>
 

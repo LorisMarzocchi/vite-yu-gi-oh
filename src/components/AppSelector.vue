@@ -1,14 +1,25 @@
 <script>
-export default {};
+import { type } from "../store";
+
+export default {
+  data() {
+    return {
+      type,
+    };
+  },
+};
 </script>
 
 <template>
   <div>
-    <select name="" id="">
-      <option>Card</option>
-      <option>Card</option>
-      <option>Card</option>
-      <option>Card</option>
+    <select v-model="type.optionList.value" class="form-select">
+      <option
+        v-for="option in type.optionList.archetype_name"
+        :key="option.archetype_name"
+        :value="option"
+      >
+        {{ option }}
+      </option>
     </select>
   </div>
 </template>

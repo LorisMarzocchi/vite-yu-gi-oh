@@ -15,7 +15,7 @@ export default {
 
 <template>
   <div class="containerCard">
-    <div class="countCard">Found 20 cards</div>
+    <div class="countCard">Found {{ store.cardList.length }} cards</div>
     <div class="container">
       <AppCard v-for="(cards, index) in store.cardList" :key="index" class="card-character" :characterData="cards" />
     </div>

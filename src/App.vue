@@ -17,13 +17,14 @@ export default {
   },
   methods: {
     requestData() {
-
       axios
         .get(
-          `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&&archetype_name=${store.value}`
+          `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0${this.store.value ? '&archetype=' + this.store.value : ''}`
         )
         .then((response) => (this.store.cardList = response.data.data));
     },
+
+
 
   },
   created() {

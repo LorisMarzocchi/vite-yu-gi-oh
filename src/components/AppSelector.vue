@@ -8,7 +8,7 @@ export default {
   },
   methods: {
     onChange() {
-      this.$emit("pippo", store.value);
+      this.$emit("pippo");
     },
   },
 };

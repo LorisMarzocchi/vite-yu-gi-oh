@@ -17,6 +17,7 @@ header {
   height: 50px;
   background-color: white;
 }
+
 img {
   margin-right: 25px;
   height: 50px;

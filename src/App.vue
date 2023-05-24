@@ -2,10 +2,8 @@
 import AppHeader from "./components/AppHeader.vue";
 import AppSelector from "./components/AppSelector.vue";
 import AppMainList from "./components/AppMainList.vue";
-
 import axios from "axios";
 import { store } from "./store";
-
 export default {
   data() {
     return {
@@ -17,29 +15,29 @@ export default {
     AppSelector,
     AppMainList,
   },
-  created() {
-    axios
-      .get("https://db.ygoprodeck.com/api/v7/archetypes.php")
-      .then((response) => (this.store.optionList = response.data));
-  },
   methods: {
     requestData() {
+
       axios
         .get(
-          `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype_name=${store.value}`
+          `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&&archetype_name=${store.value}`
         )
         .then((response) => (this.store.cardList = response.data.data));
     },
-    onFilter(pippo) {
-      this.value = pippo;
-    }
+
+  },
+  created() {
+    this.requestData();
+    axios
+      .get("https://db.ygoprodeck.com/api/v7/archetypes.php")
+      .then((response) => (this.store.optionList = response.data));
   },
 };
 </script>
 
 <template>
   <AppHeader />
-  <AppSelector @pippo="requestData()" />
+  <AppSelector @pippo="requestData" />
   <AppMainList />
 </template>
 

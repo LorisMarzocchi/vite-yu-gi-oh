@@ -1,6 +1,5 @@
 <script>
 import { store } from "../store";
-
 export default {
   data() {
     return {
@@ -9,7 +8,7 @@ export default {
   },
   methods: {
     onChange() {
-      this.$emit("pippo");
+      this.$emit("pippo", store.value);
     },
   },
 };
